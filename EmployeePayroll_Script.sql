@@ -81,3 +81,11 @@ GROUP BY gender;
 SELECT gender, COUNT(*) AS NumberOfEmployees
 FROM employee_payroll
 GROUP BY gender;
+
+
+-- USE-CASE-8 Ability to extend employee_payroll data to store employee information like employee phone, address and department - Ensure employee department
+
+ALTER TABLE employee_payroll
+ADD  phone VARCHAR(15),
+ADD address VARCHAR(255) default null ,
+ADD department VARCHAR(50) NOT NULL;
