@@ -26,3 +26,7 @@ VALUES
     ('Gray Hawthorne', 70000.00, '2023-07-01'),
     ('Jameson Hawthorne', 60000.00, '2023-08-01'),
     ('Nash Hawthorne', 72000.00, '2023-09-01');
+    
+-- USE-CASE-4
+
+SELECT * FROM employee_payroll;
