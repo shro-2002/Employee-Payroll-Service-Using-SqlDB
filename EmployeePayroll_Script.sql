@@ -17,3 +17,12 @@ CREATE TABLE employee_payroll (
     Start_Date DATE NOT NULL
 );
 
+-- USE-CASE-3
+
+INSERT INTO employee_payroll (name, salary, start_date)
+VALUES 
+    ('Avery Grambs', 65000.00, '2023-05-01'),
+    ('Tobias Hawthorne', 80000.00, '2023-06-01'),
+    ('Gray Hawthorne', 70000.00, '2023-07-01'),
+    ('Jameson Hawthorne', 60000.00, '2023-08-01'),
+    ('Nash Hawthorne', 72000.00, '2023-09-01');
