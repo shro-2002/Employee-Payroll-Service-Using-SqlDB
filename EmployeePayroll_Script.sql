@@ -27,7 +27,7 @@ VALUES
     ('Jameson Hawthorne', 60000.00, '2023-08-01'),
     ('Nash Hawthorne', 72000.00, '2023-09-01');
     
--- USE-CASE-4
+-- USE-CASE-4 Retrieve the records of the table
 
 SELECT * FROM employee_payroll;
 
@@ -50,3 +50,34 @@ SET SQL_SAFE_UPDATES = 0;
 UPDATE employee_payroll 
 set gender ='M' 
 Where Name in ('Tobias Hawthorne','Gray Hawthorne' , 'Jameson Hawthorne' , 'Nash Hawthorne');
+
+UPDATE employee_payroll 
+set gender ='F' 
+Where Name in ('Avery Grambs');
+
+-- USE-CASE-7: Ability to find sum, average, min, max and number of male and female employees
+
+-- Sum of salary by gender
+SELECT gender, SUM(salary) AS TotalSalary
+FROM employee_payroll
+GROUP BY gender;
+
+-- Average salary by gender
+SELECT gender, AVG(salary) AS AverageSalary
+FROM employee_payroll
+GROUP BY gender;
+
+-- Minimum salary by gender
+SELECT gender, MIN(salary) AS MinSalary
+FROM employee_payroll
+GROUP BY gender;
+
+-- Maximum salary by gender
+SELECT gender, MAX(salary) AS MaxSalary
+FROM employee_payroll
+GROUP BY gender;
+
+-- Number of employees by gender
+SELECT gender, COUNT(*) AS NumberOfEmployees
+FROM employee_payroll
+GROUP BY gender;
