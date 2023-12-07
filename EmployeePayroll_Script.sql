@@ -30,3 +30,13 @@ VALUES
 -- USE-CASE-4
 
 SELECT * FROM employee_payroll;
+
+-- USE-CASE-5 retrieve salary data for a particular employee as well as all employees who have joined in a particular data range from the payroll service database
+
+SELECT salary 
+FROM employee_payroll 
+WHERE name = 'Gray Hawthorne';
+
+SELECT * 
+FROM employee_payroll 
+WHERE start_date BETWEEN CAST('2023-07-01' AS DATE) AND now();
