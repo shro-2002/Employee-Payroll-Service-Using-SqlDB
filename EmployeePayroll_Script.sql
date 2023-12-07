@@ -83,9 +83,19 @@ FROM employee_payroll
 GROUP BY gender;
 
 
--- USE-CASE-8 Ability to extend employee_payroll data to store employee information like employee phone, address and department - Ensure employee department
+-- USE-CASE-8 Ability to extend employee_payroll data to store employee information like employee phone, address and department
 
 ALTER TABLE employee_payroll
 ADD  phone VARCHAR(15),
 ADD address VARCHAR(255) default null ,
 ADD department VARCHAR(50) NOT NULL;
+
+
+-- USE-CASE-9 Ability to extend employee_payroll table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay 
+
+ALTER TABLE employee_payroll
+ADD basic_pay DECIMAL(10,2),
+ADD deductions DECIMAL(10,2),
+ADD taxable_pay DECIMAL(10,2),
+ADD income_tax DECIMAL(10,2),
+ADD net_pay DECIMAL(10,2);
