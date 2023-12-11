@@ -2,19 +2,44 @@ package com.bridgelabs.tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.bridgelabs.exceptions.EmployeePayrollException;
 import com.bridgelabs.pojo.EmployeePayroll;
+import com.bridgelabs.retrieve.ReadData;
 import com.bridgelabs.update.DatabaseUpdate;
-
 
 /*
  * @Description: This class is used to test the update operation.
  * 
- * @Behavior: void test()
+ * @Properties: DatabaseUpdate databaseUpdate, ReadData readData, EmployeePayroll EmployeeUpdate
+ * 
+ * @Behavior: void test(), void UpdateEmployee()
  */
 class UpdateTest {
+	DatabaseUpdate databaseUpdate = new DatabaseUpdate();
+	ReadData readData = new ReadData();
+	EmployeePayroll EmployeeUpdate;
+
+
+	/*
+	 * @Description: This method is used to update the salary of an employee in the database
+	 * 
+	 * @Param: void
+	 * 
+	 * @Return: void
+	 */
+	@BeforeEach
+	void UpdateEmployee() throws EmployeePayrollException {
+
+		databaseUpdate = new DatabaseUpdate();
+		databaseUpdate.updateSalaryInDatabase("Terrisa Walker", 4000000.00);
+
+		EmployeeUpdate = readData.getEmployeeByName("Terrisa Walker");
+		
+
+	}
 
 	/*
 	 * @Description: This method is used to test the update operation.
@@ -23,14 +48,11 @@ class UpdateTest {
 	 * 
 	 * @Return: void
 	 */
-	
+
 	@Test
-	void test() throws EmployeePayrollException {
-		DatabaseUpdate databaseUpdate = new DatabaseUpdate();
-		databaseUpdate.updateSalaryInDatabase("Terrisa Walker", 4000000.00);
-		EmployeePayroll EmployeeUpdate = new EmployeePayroll();
-		EmployeeUpdate.setSalary(3000000.00);
-		assertEquals(3000000, EmployeeUpdate.getSalary());
+	void test() {
+
+		assertEquals(4000000.00, EmployeeUpdate.getSalary());
 	}
 
 }

@@ -39,7 +39,7 @@ public class DatabaseUpdate {
 				}
 			}
 
-			// Catching row not found  errors
+			// Catching row not found  error
 			catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("Error type: " + Errors.NO_SUCH_EMPLOYEE);
