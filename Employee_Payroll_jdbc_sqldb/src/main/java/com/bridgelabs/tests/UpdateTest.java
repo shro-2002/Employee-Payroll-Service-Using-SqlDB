@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.bridgelabs.exceptions.EmployeePayrollException;
-import com.bridgelabs.pojo.EmployeePayroll;
+import com.bridgelabs.model.EmployeePayroll;
 import com.bridgelabs.retrieve.ReadData;
 import com.bridgelabs.update.DatabaseUpdate;
 
@@ -22,9 +22,9 @@ class UpdateTest {
 	ReadData readData = new ReadData();
 	EmployeePayroll EmployeeUpdate;
 
-
 	/*
-	 * @Description: This method is used to update the salary of an employee in the database
+	 * @Description: This method is used to update the salary of an employee in the
+	 * database
 	 * 
 	 * @Param: void
 	 * 
@@ -33,11 +33,9 @@ class UpdateTest {
 	@BeforeEach
 	void UpdateEmployee() throws EmployeePayrollException {
 
-		databaseUpdate = new DatabaseUpdate();
-		databaseUpdate.updateSalaryInDatabase("Terrisa Walker", 4000000.00);
+		databaseUpdate.updateSalaryInDatabase("Terrisa Walker", 6000000.00);
 
 		EmployeeUpdate = readData.getEmployeeByName("Terrisa Walker");
-		
 
 	}
 
@@ -52,7 +50,7 @@ class UpdateTest {
 	@Test
 	void test() {
 
-		assertEquals(4000000.00, EmployeeUpdate.getSalary());
+		assertEquals(6000000.00, EmployeeUpdate.getSalary());
 	}
 
 }

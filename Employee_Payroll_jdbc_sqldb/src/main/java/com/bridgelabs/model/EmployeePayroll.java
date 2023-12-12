@@ -1,4 +1,4 @@
-package com.bridgelabs.pojo;
+package com.bridgelabs.model;
 
 import java.util.Date;
 
@@ -20,11 +20,8 @@ public class EmployeePayroll {
 	private String phone;
 	private String address;
 	private String department;
-	private double basicPay;
 	private double deductions;
-	private double taxablePay;
 	private double incomeTax;
-	private double netPay;
 
 	/*
 	 * @Description: Parameterized Constructor to initialize the variables
@@ -35,8 +32,7 @@ public class EmployeePayroll {
 	 * 
 	 */
 	public EmployeePayroll(int id, String name, double salary, Date startDate, String gender, String phone,
-			String address, String department, double basicPay, double deductions, double taxablePay, double incomeTax,
-			double netPay) {
+			String address, String department, double deductions, double incomeTax) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -46,11 +42,8 @@ public class EmployeePayroll {
 		this.phone = phone;
 		this.address = address;
 		this.department = department;
-		this.basicPay = basicPay;
 		this.deductions = deductions;
-		this.taxablePay = taxablePay;
 		this.incomeTax = incomeTax;
-		this.netPay = netPay;
 	}
 
 	public EmployeePayroll() {
@@ -250,30 +243,6 @@ public class EmployeePayroll {
 	}
 
 	/*
-	 * @Description: Getter method to get the basic pay of the employee
-	 * 
-	 * @Param: void
-	 * 
-	 * @Return: basicPay
-	 */
-
-	public double getBasicPay() {
-		return basicPay;
-	}
-
-	/*
-	 * @Description: Setter method to set the basic pay of the employee
-	 * 
-	 * @Param: basicPay
-	 * 
-	 * @Return: void
-	 * 
-	 */
-	public void setBasicPay(double basicPay) {
-		this.basicPay = basicPay;
-	}
-
-	/*
 	 * @Description: Getter method to get the deductions of the employee
 	 * 
 	 * @Param: void
@@ -295,30 +264,6 @@ public class EmployeePayroll {
 	 */
 	public void setDeductions(double deductions) {
 		this.deductions = deductions;
-	}
-
-	/*
-	 * @Description: Getter method to get the taxable pay of the employee
-	 * 
-	 * @Param: void
-	 * 
-	 * @Return: taxablePay
-	 * 
-	 */
-	public double getTaxablePay() {
-		return taxablePay;
-	}
-
-	/*
-	 * @Description: Setter method to set the taxable pay of the employee
-	 * 
-	 * @Param: taxablePay
-	 * 
-	 * @Return: void
-	 * 
-	 */
-	public void setTaxablePay(double taxablePay) {
-		this.taxablePay = taxablePay;
 	}
 
 	/*
@@ -346,30 +291,6 @@ public class EmployeePayroll {
 	}
 
 	/*
-	 * @Description: Getter method to get the net pay of the employee
-	 * 
-	 * @Param: void
-	 * 
-	 * @Return: netPay
-	 * 
-	 */
-	public double getNetPay() {
-		return netPay;
-	}
-
-	/*
-	 * @Description: Setter method to set the net pay of the employee
-	 * 
-	 * @Param: netPay
-	 * 
-	 * @Return: void
-	 * 
-	 */
-	public void setNetPay(double netPay) {
-		this.netPay = netPay;
-	}
-
-	/*
 	 * @Description: Overriding toString method to print the details of the employee
 	 * 
 	 * @Param: void
@@ -381,8 +302,7 @@ public class EmployeePayroll {
 	public String toString() {
 		return "EmployeePayroll [id=" + id + ", name=" + name + ", salary=" + salary + ", startDate=" + startDate
 				+ ", gender=" + gender + ", phone=" + phone + ", address=" + address + ", department=" + department
-				+ ", basicPay=" + basicPay + ", deductions=" + deductions + ", taxablePay=" + taxablePay
-				+ ", incomeTax=" + incomeTax + ", netPay=" + netPay + "]";
+				+ ", deductions=" + deductions + ", incomeTax=" + incomeTax + "]";
 	}
 
 }

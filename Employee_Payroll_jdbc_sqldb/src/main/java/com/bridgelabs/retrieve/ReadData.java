@@ -11,7 +11,7 @@ import java.util.List;
 import com.bridgelabs.connection.DBConnection;
 import com.bridgelabs.exceptions.EmployeePayrollException;
 import com.bridgelabs.exceptions.Errors;
-import com.bridgelabs.pojo.EmployeePayroll;
+import com.bridgelabs.model.EmployeePayroll;
 
 /*
  * @Description: This class is used to retrieve data from database
@@ -36,7 +36,7 @@ public class ReadData {
 	 * @Return: List of EmployeePayroll
 	 * 
 	 */
-	public List<EmployeePayroll> getEmployeePayrollData() throws EmployeePayrollException {
+	public List<EmployeePayroll> getEmployeePayrollData() throws SQLException {
 
 		String query = "SELECT * FROM employee_payroll";
 
@@ -52,24 +52,33 @@ public class ReadData {
 				String phone = resultSet.getString("phone");
 				String address = resultSet.getString("address");
 				String department = resultSet.getString("department");
-				double basicPay = resultSet.getDouble("basic_pay");
 				double deductions = resultSet.getDouble("deductions");
-				double taxablePay = resultSet.getDouble("taxable_pay");
-				double incomeTax = resultSet.getDouble("income_tax");
-				double netPay = resultSet.getDouble("net_pay");
+				double incometax = resultSet.getDouble("income_tax");
 
 				EmployeePayroll employeePayroll = new EmployeePayroll(id, name, salary, startDate, gender, phone,
-						address, department, basicPay, deductions, taxablePay, incomeTax, netPay);
+						address, department, deductions, incometax);
 				employeePayrolls.add(employeePayroll);
+
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new EmployeePayrollException(Errors.QUERY_ERROR);
 		}
+		connection.close();
 		return employeePayrolls;
 	}
 
+	/*
+	 * @Description: This method is used to retrieve data from database by name
+	 * 
+	 * @Param: String name
+	 * 
+	 * @Exception: EmployeePayrollException
+	 * 
+	 * @Return: EmployeePayroll
+	 * 
+	 */
 	public EmployeePayroll getEmployeeByName(String name) throws EmployeePayrollException {
 
 		try {
@@ -87,14 +96,12 @@ public class ReadData {
 				String phone = resultSet.getString("phone");
 				String address = resultSet.getString("address");
 				String department = resultSet.getString("department");
-				double basicPay = resultSet.getDouble("basic_pay");
+				double incometax = resultSet.getDouble("income_tax");
 				double deductions = resultSet.getDouble("deductions");
-				double taxablePay = resultSet.getDouble("taxable_pay");
-				double incomeTax = resultSet.getDouble("income_tax");
-				double netPay = resultSet.getDouble("net_pay");
+				connection.close();
+				return new EmployeePayroll(id, name1, salary, startDate, gender, phone, address, department, deductions,
+						incometax);
 
-				return new EmployeePayroll(id, name1, salary, startDate, gender, phone, address, department, basicPay,
-						deductions, taxablePay, incomeTax, netPay);
 			}
 
 			else

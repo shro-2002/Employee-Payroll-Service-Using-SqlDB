@@ -2,7 +2,7 @@ package com.bridgelabs.exceptions;
 
 public enum Errors {
 
-    NO_SUCH_EMPLOYEE("No such employee found"), QUERY_ERROR("No such field found");
+    NO_SUCH_EMPLOYEE("No such employee found"), QUERY_ERROR("Found Error while querying data");
 
     private String message;
 

@@ -1,5 +1,7 @@
 package com.bridgelabs.exceptions;
 
+import java.sql.SQLException;
+
 /*
  * @Description: This class is used to throw exception for retrieving data from Employee Payroll Database
  * 
@@ -8,7 +10,7 @@ package com.bridgelabs.exceptions;
  * @Behaviour: Parameterized Constructor
  * 
  */
-public class EmployeePayrollException extends Exception {
+public class EmployeePayrollException extends SQLException {
 
 	private static final long serialVersionUID = 1L;
 
