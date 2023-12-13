@@ -1,4 +1,4 @@
-package com.bridgelabs.exceptions;
+package com.bridgelabz.exceptions;
 
 public enum Errors {
 

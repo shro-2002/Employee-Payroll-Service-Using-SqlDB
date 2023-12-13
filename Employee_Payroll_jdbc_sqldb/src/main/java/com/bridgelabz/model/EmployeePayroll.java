@@ -1,4 +1,4 @@
-package com.bridgelabs.model;
+package com.bridgelabz.model;
 
 import java.util.Date;
 

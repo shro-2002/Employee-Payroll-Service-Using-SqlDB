@@ -1,14 +1,15 @@
-package com.bridgelabs.tests;
+package com.bridgelabz.tests;
+
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.bridgelabs.exceptions.EmployeePayrollException;
-import com.bridgelabs.model.EmployeePayroll;
-import com.bridgelabs.retrieve.ReadData;
-import com.bridgelabs.update.DatabaseUpdate;
+import com.bridgelabz.dboperations.DatabaseOperations;
+import com.bridgelabz.exceptions.EmployeePayrollException;
+import com.bridgelabz.model.EmployeePayroll;
 
 /*
  * @Description: This class is used to test the update operation.
@@ -18,8 +19,7 @@ import com.bridgelabs.update.DatabaseUpdate;
  * @Behavior: void test(), void UpdateEmployee()
  */
 class UpdateTest {
-	DatabaseUpdate databaseUpdate = new DatabaseUpdate();
-	ReadData readData = new ReadData();
+	DatabaseOperations readData = new DatabaseOperations();
 	EmployeePayroll EmployeeUpdate;
 
 	/*
@@ -33,7 +33,7 @@ class UpdateTest {
 	@BeforeEach
 	void UpdateEmployee() throws EmployeePayrollException {
 
-		databaseUpdate.updateSalaryInDatabase("Terrisa Walker", 6000000.00);
+		readData.updateSalaryInDatabase("Terrisa Walker", 3000000.00);
 
 		EmployeeUpdate = readData.getEmployeeByName("Terrisa Walker");
 
@@ -50,7 +50,7 @@ class UpdateTest {
 	@Test
 	void test() {
 
-		assertEquals(6000000.00, EmployeeUpdate.getSalary());
+		assertEquals(3000000.00, EmployeeUpdate.getSalary());
 	}
 
 }

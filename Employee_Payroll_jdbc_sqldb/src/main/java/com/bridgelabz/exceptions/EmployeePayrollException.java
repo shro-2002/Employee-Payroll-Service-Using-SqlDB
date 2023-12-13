@@ -1,4 +1,4 @@
-package com.bridgelabs.exceptions;
+package com.bridgelabz.exceptions;
 
 import java.sql.SQLException;
 
